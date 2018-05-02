@@ -1,0 +1,54 @@
+{
+  "name": "ANTs-CT"
+  "version": "1.0.0",
+  "keywords": [
+    "brain",
+    "cortex",
+    "thicknes",
+    "DiReCT"
+  ],
+  "shortdesc": "ANTs cortical thickness using the DiReCT method"
+  "longdesc": "Estimates a cortical thickness map using a registration-based cortical thickness measurement",
+  "citation": "https://www.ncbi.nlm.nih.gov/pubmed/25181316",
+  "url": "https://sites.google.com/view/ashs-dox/mri-data/ashs-pmc-atlas-requirements",
+  "tags": [
+    { 
+      "name": "T1-MRI",
+      "type": "MainImage",
+      "hint": "Roughtly isotropic (e.g., 1x1x1mm^3) T1-weighted MRI scan of the whole brain.",
+      "required": true
+    },
+    { 
+      "name": "AC",
+      "type": "PointLandmark",
+      "hint": "Anterior commissure point can be optionally specified to help align the MRI scan to the brain template.",
+      "required": false
+    },
+    { 
+      "name": "PC",
+      "type": "PointLandmark",
+      "hint": "Posterior commissure point can be optionally specified to help align the MRI scan to the brain template.",
+      "required": false
+    }
+  ],
+  "parameters": [
+    { 
+      "name": "corr_mode",
+      "displayname" : "Correction Mode",
+      "hint" : "ASHS offers performs segmentation error correction based on a machine learning algorithm. The 'intensity and shape correction' mode is suitable when your data closely matches the intensity characteristics of the ASHS atlas (see paper for details). Otherwise , 'shape correction' is recommended. You may also choose to disable error correction.",
+      "type" : "choose_one",
+      "choices" : [
+        { 
+          "name" : "none",
+          "displayname" : "No error correction"
+        },
+        { 
+          "name" : "shape",
+          "displayname" : "Shape correction"
+        },
+        { 
+          "name" : "intensity",
+          "displayname" : "Intensity correction"
+        }
+        ]
+    }
